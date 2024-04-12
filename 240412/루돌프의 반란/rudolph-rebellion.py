@@ -29,9 +29,8 @@ def move_dolph(r1,c1):
         elif dist==minval:
             if r2>santa_pos[0]:
                 santa_pos=r2,c2
-            elif r1==r2 and c2>santa_pos[1]:
+            elif r2==santa_pos[0] and c2>santa_pos[1]:
                 santa_pos=r2,c2
-
     return santa_pos
 
 def move_dolph_rule(r1,c1,r2,c2):
@@ -70,7 +69,6 @@ def move_dolph_collide(dr,dc,r2,c2,cnt):
     if 0<=r22<n and 0<=c22<n:
         if board[r22][c22] != -1:
             dolph_interaction(dr,dc,r22,c22,cnt+1)
-
         board[r22][c22]=ind
         stun[ind]=2
     else:
@@ -110,7 +108,6 @@ def move_santa_collide(dr,dc,r2,c2,cnt):
 
     r22=r2+dr*(d-1)
     c22=c2+dc*(d-1)
-
     ind = board[r2][c2]
     santa[ind] = [r22, c22, santa[ind][2] + d, santa[ind][3]]
     board[r2][c2] = -1
